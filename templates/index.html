@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="../static/css/style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
         <title>Film en streaming</title>
@@ -25,30 +26,43 @@
 
                 </nav>
             </header>
+            <div id="baniere_best_film">
+                <div id="banniere_image">
+                    <div id="banniere_play">
+                        <div class="button">
+                            <a class="text_boutton" href="">Play</a>
+                            <div class="background__button"></div>
+                        </div>
+                        <div class="button">
+                            <a class="text_boutton" href="">More Info</a>
+                            <div class="background__button"></div>
+                        </div>
 
-            <div id="banniere_image">
-                <div id="banniere_description">
-
-                    <div class="button">
-                        <a class="text_boutton" href="">Play</a>
-                        <div class="background__button"></div>
                     </div>
-
-                    <div class="button">
-                        <a class="text_boutton" href="">More Info</a>
-                        <div class="background__button"></div>
-                    </div>
+                </div>
+                <div id="banniere_descreption">
+                    <h4>Titre : <h4 id="TITRE"></h4></h4>
+                    <h4>Genre : <h4 id="GENRE"></h4></h4>
+                    <h4>date de sortie : <h4 id="DATE_SORTIE"></h4></h4>
+                    <h4>Rated : <h4 id="RATED"></h4></h4>
+                    <h4>Score Imdb : <h4 id="SCORE_IMDB"></h4></h4>
+                    <h4>Réalisateur : <h4 id="REALISATEUR"></h4></h4>
+                    <h4>Acteurs : <h4 id="ACTEURS"></h4></h4>
+                    <h4>Pays d’origine : <h4 id="PAYS"></h4></h4>
+                    <h4>Durée : <h4 id="DUREE"></h4></h4>
+                    <h4>Résultat au Box Office : <h4 id="RESULTAT_BACK"></h4></h4>
+                    <h4>résumé du film : <h4 id="RESUME"></h4></h4>
 
                 </div>
-            </div>
 
+            </div>
             <section>
 
             </section>
 
             <footer>
             </footer>
-        </div>
+
         <script src="../static/js/myscript.js"></script>
     </body>
 </html>

@@ -2,7 +2,7 @@ body
 {
     background-color: lightgrey;
     font-family: Arial, serif;
-    color: #E45523;
+    color: black;
 }
 #bloc_page
 {
@@ -96,7 +96,7 @@ header h2
     margin-bottom: 25px;
 }
 
-#banniere_description
+#banniere_play
 {
     position: absolute;
     bottom: 0;
@@ -185,7 +185,7 @@ header h2
 }
 section h1, footer h1, nav a
 {
-    font-family: Dayrom, serif;
+    font-family: "Times New Roman", serif;
     font-weight: normal;
     text-transform: uppercase;
 }
