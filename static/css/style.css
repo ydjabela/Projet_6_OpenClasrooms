@@ -89,15 +89,15 @@ header h2
     height: 305px;
     width: 1100px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: baseline;
     margin-top: 2px;
 }
 #banniere_image
 {
     margin-top: 15px;
-    height: 300px;
-    width: 200px;
+    height: 600px;
+    width: 1100px;
     border-radius: 5px;
     position: relative;
     box-shadow: 0px 4px 4px #1c1a19;
@@ -105,10 +105,14 @@ header h2
     margin-top: 2px;
     margin-right: 15px;
 }
-#banniere_descreption
+#banniere_image img
 {
     height: 300px;
-    width: 700px;
+}
+#banniere_descreption
+{
+    height: auto;
+    width: 1100px;
     border-radius: 5px;
     box-shadow: 0px 4px 4px #1c1a19;
     margin-top: 2px;
@@ -121,7 +125,7 @@ header h2
     border-radius: 0px 0px 5px 5px;
     width: 178px;
     height: 33px;
-    padding-top: 15px;
+    padding-top: 10px;
     padding-left: 4px;
     background-color: rgba(24,24,24,0.8);
     color: white;
@@ -207,4 +211,81 @@ section h1, footer h1, nav a, h4
     font-weight: normal;
     margin-top: 2px;
     margin-bottom: 2px;
+}
+/* Décrire l'animation */
+@keyframes slideDownFadeIN {
+    from {top:-100px;opacity: 0;}
+    to {top:0px;opacity:1;}
+}
+
+/* Foncer l'arrière-plan de la fenêtre modale */
+.modal {
+  display: none;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Afficher la fenêtre modale lorsqu'elle est ciblée par un lien supprimer */
+.modal:target {
+  display: table;
+  position: absolute;
+}
+
+/* la fenêtre modale  */
+.modal-dialog {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* Le contenu de la modale */
+.modal-dialog .modal-content {
+  margin: auto;
+  background-color: #f3f3f3;
+  position: relative;
+  padding: 0;
+  outline: 0;
+  border: 1px #777 solid;
+  text-align: justify;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  animation-name: slideDownFadeIN;
+  animation-duration: 0.5s;
+}
+
+/* Bouton servant à fermer la fenêtre modale */
+.closebtn {
+  text-decoration: none;
+  float: right;
+  font-size: 35px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.closebtn:hover,
+.closebtn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+.modal-content header {
+  background-color: black;
+  font-size: 25px;
+  color: white;
+}
+
+footer {
+  background-color: black;
+  font-size: 20px;
+  color: white;
 }

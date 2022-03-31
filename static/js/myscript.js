@@ -42,6 +42,7 @@ async function render_get_url_data(url) {
     let url_data_json = await get_url_data(url);
     let result = url_data_json;
     document.getElementById("TITRE").innerHTML = 'Titre : ' + result['title'];
+    document.getElementById("ORIGINAL_TITLE").innerHTML = 'Titre : ' + result['original_title'];
     document.getElementById("GENRE").innerHTML ="Genre :  " + result['genres'];
     document.getElementById("DATE_SORTIE").innerHTML ="date de sortie : " + result['date_published'];
     document.getElementById("RATED").innerHTML = "Rated :" + result['rated'];
@@ -49,9 +50,10 @@ async function render_get_url_data(url) {
     document.getElementById("REALISATEUR").innerHTML ="Réalisateur : " +  result['writers'];
     document.getElementById("ACTEURS").innerHTML ="Acteurs :" +  result['actors'];
     document.getElementById("PAYS").innerHTML ="Pays d’origine : " +  result['countries'];
-    document.getElementById("DUREE").innerHTML ="Durée : " +  result['duration'];
+    document.getElementById("DUREE").innerHTML ="Durée : " +  result['duration'] + "min";
     document.getElementById("RESULTAT_BACK").innerHTML ="Résultat au Box Office : " +  result['title'];
-    document.getElementById("RESUME").innerHTML ="résumé du film : " +  result['long_description'];
+    document.getElementById("RESUME").innerHTML ="Résumé du film : " +  result['description'];
+    document.getElementById("RESUME_LONG").innerHTML ="résumé du film : " +  result['long_description'];
     var img = document.createElement("IMG");
     img.src = result['image_url'];
     document.getElementById('image').appendChild(img);
