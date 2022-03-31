@@ -41,17 +41,17 @@ async function get_url_data(url) {
 async function render_get_url_data(url) {
     let url_data_json = await get_url_data(url);
     let result = url_data_json;
-    document.getElementById("TITRE").innerHTML = result['title'];
-    document.getElementById("GENRE").innerHTML = result['genres'];
-    document.getElementById("DATE_SORTIE").innerHTML = result['date_published'];
-    document.getElementById("RATED").innerHTML = result['rated'];
-    document.getElementById("SCORE_IMDB").innerHTML = result['imdb_score'];
-    document.getElementById("REALISATEUR").innerHTML = result['writers'];
-    document.getElementById("ACTEURS").innerHTML = result['actors'];
-    document.getElementById("PAYS").innerHTML = result['countries'];
-    document.getElementById("DUREE").innerHTML = result['duration'];
-    document.getElementById("RESULTAT_BACK").innerHTML = result['title'];
-    document.getElementById("RESUME").innerHTML = result['long_description'];
+    document.getElementById("TITRE").innerHTML = 'Titre : ' + result['title'];
+    document.getElementById("GENRE").innerHTML ="Genre :  " + result['genres'];
+    document.getElementById("DATE_SORTIE").innerHTML ="date de sortie : " + result['date_published'];
+    document.getElementById("RATED").innerHTML = "Rated :" + result['rated'];
+    document.getElementById("SCORE_IMDB").innerHTML = "Score Imdb : " + result['imdb_score'];
+    document.getElementById("REALISATEUR").innerHTML ="Réalisateur : " +  result['writers'];
+    document.getElementById("ACTEURS").innerHTML ="Acteurs :" +  result['actors'];
+    document.getElementById("PAYS").innerHTML ="Pays d’origine : " +  result['countries'];
+    document.getElementById("DUREE").innerHTML ="Durée : " +  result['duration'];
+    document.getElementById("RESULTAT_BACK").innerHTML ="Résultat au Box Office : " +  result['title'];
+    document.getElementById("RESUME").innerHTML ="résumé du film : " +  result['long_description'];
     var img = document.createElement("IMG");
     img.src = result['image_url'];
     document.getElementById('image').appendChild(img);
