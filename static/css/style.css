@@ -64,7 +64,6 @@ nav a:hover
 }
 #banniere_descreption
 {
-    width: 1100px;
     border-radius: 5px;
     box-shadow: 0px 4px 4px #1c1a19;
 }
@@ -73,9 +72,8 @@ nav a:hover
     position: absolute;
     bottom: 0;
     border-radius: 0px 0px 5px 5px;
-    width: 178px;
-    padding-top: 10px;
-    padding-left: 4px;
+    width: 200px;
+    padding-left: 6px;
     background-color: rgba(24,24,24,0.8);
     font-size: 0.8em;
     display: flex;
