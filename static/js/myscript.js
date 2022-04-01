@@ -140,7 +140,10 @@ const URLS_BEST_MOVIES = [
     },
 ];
 
- for (let j = 0; j < MOVIE_CATEGORIES.length; j++) {
-     render_get_urls_data_best_movies(URLS_BEST_MOVIES['url'], URLS_BEST_MOVIES['elmentid']);
+ for (let j = 0; j < URLS_BEST_MOVIES.length; j++) {
+     console.log(URLS_BEST_MOVIES);
+     console.log(URLS_BEST_MOVIES[j]['url']);
+     console.log(URLS_BEST_MOVIES[j]['elmentid']);
+     render_get_urls_data_best_movies(URLS_BEST_MOVIES[j]['url'], URLS_BEST_MOVIES[j]['elmentid']);
  }
 
