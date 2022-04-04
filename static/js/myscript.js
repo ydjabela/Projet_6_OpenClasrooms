@@ -104,13 +104,25 @@ async function get_urls_names(url) {
 async function render_get_urls_data_best_movies(url, elementid) {
     try{
         let {urls_image, titles} = await get_urls_names(url);
+        var section = document.createElement("section");
+        section.className = "section_1";
+        document.getElementById(elementid).appendChild(section);
+        var button_arrow_left = document.createElement("a");
+        button_arrow_left.className = "arrow__btn";
+        document.getElementsByClassName(section).appendChild(button_arrow_left);
+        document.getElementsByClassName(button_arrow_left).innerHTML ='<';
         for (let pas = 0; pas < 7; pas++) {
-            var img = document.createElement("IMG");
+            var img = document.createElement("img");
             img.src = urls_image[pas];
+            img.className = "item";
             img.style.marginRight = '15px';
             img.title = titles[pas];
-            document.getElementById(elementid).appendChild(img);
+            document.getElementById(section).appendChild(img);
         }
+        var button_arrow_right = document.createElement("a");
+        button_arrow_right.className = "arrow__btn";
+        document.getElementById(section).appendChild(button_arrow_right);
+        document.getElementsByClassName(button_arrow_right).innerHTML ='>';
     } catch (error) {
     console.log(error);
   }
@@ -141,9 +153,6 @@ const URLS_BEST_MOVIES = [
 ];
 
  for (let j = 0; j < URLS_BEST_MOVIES.length; j++) {
-     console.log(URLS_BEST_MOVIES);
-     console.log(URLS_BEST_MOVIES[j]['url']);
-     console.log(URLS_BEST_MOVIES[j]['elmentid']);
      render_get_urls_data_best_movies(URLS_BEST_MOVIES[j]['url'], URLS_BEST_MOVIES[j]['elmentid']);
  }
 
