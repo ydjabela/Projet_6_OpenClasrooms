@@ -142,4 +142,6 @@ const URLS_BEST_MOVIES = [
     },
 ];
 
-render_get_urls_data_best_movies(URLS_BEST_MOVIES[0]['url'], URLS_BEST_MOVIES[0]['elmentid']);
+for (let j = 0; j < URLS_BEST_MOVIES.length; j++) {
+     render_get_urls_data_best_movies(URLS_BEST_MOVIES[j]['url'], URLS_BEST_MOVIES[j]['elmentid']);
+ }
