@@ -109,6 +109,7 @@ async function render_get_urls_data_best_movies(url, elementid) {
             img.src = urls_image[pas];
             img.style.marginRight = '15px';
             img.title = titles[pas];
+            img.setAttribute('class', 'slide')
             document.getElementById(elementid).appendChild(img);
         }
     } catch (error) {
