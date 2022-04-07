@@ -28,7 +28,7 @@ function moveSlidesRight() {
     el.style.left = width + "px";
     width += lengthOfSlide;
   });
-  addClone();
+  setInterval(function(){ addClone() }, 3000);
 }
 moveSlidesRight();
 

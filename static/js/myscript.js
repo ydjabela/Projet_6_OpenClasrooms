@@ -103,12 +103,13 @@ async function get_urls_names(url) {
 // function to get  all informations film
 async function render_get_urls_data_best_movies(url, elementid) {
     try{
+        const pas_lef = ["0px", "200px", "400px" , "600px" , "800px", "1000px"];
         let {urls_image, titles} = await get_urls_names(url);
         for (let pas = 0; pas < 7; pas++) {
             var img = document.createElement("IMG");
             img.src = urls_image[pas];
-            img.style.marginRight = '15px';
             img.title = titles[pas];
+            img.style.left = pas_lef[pas];
             img.setAttribute('class', 'slide')
             document.getElementById(elementid).appendChild(img);
         }
@@ -141,10 +142,4 @@ const URLS_BEST_MOVIES = [
     },
 ];
 
- for (let j = 0; j < URLS_BEST_MOVIES.length; j++) {
-     console.log(URLS_BEST_MOVIES);
-     console.log(URLS_BEST_MOVIES[j]['url']);
-     console.log(URLS_BEST_MOVIES[j]['elmentid']);
-     render_get_urls_data_best_movies(URLS_BEST_MOVIES[j]['url'], URLS_BEST_MOVIES[j]['elmentid']);
- }
-
+render_get_urls_data_best_movies(URLS_BEST_MOVIES[0]['url'], URLS_BEST_MOVIES[0]['elmentid']);
