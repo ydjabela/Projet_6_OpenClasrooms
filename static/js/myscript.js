@@ -103,14 +103,17 @@ async function get_urls_names(url) {
 // function to get  all informations film
 async function render_get_urls_data_best_movies(url, elementid) {
     try{
-        const pas_lef = ["0px", "200px", "400px" , "600px" , "800px", "1000px"];
+        const pas_lef = ["0px", "200px", "400px" , "600px" , "800px", "1000px", "1200px"];
         let {urls_image, titles} = await get_urls_names(url);
         for (let pas = 0; pas < 7; pas++) {
             var img = document.createElement("IMG");
             img.src = urls_image[pas];
             img.title = titles[pas];
-            img.style.left = pas_lef[pas];
-            img.setAttribute('class', 'slide')
+            var width = 200 * pas
+            width -= 200;
+            img.style.left = width + 'px';
+            slideclass = "slide"
+            img.setAttribute('class', slideclass)
             document.getElementById(elementid).appendChild(img);
         }
     } catch (error) {
