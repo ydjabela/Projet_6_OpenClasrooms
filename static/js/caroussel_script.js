@@ -1,66 +1,51 @@
-var carousel = document.querySelector('.carousel');
-var carouselContent = document.querySelector('.carousel-content');
 const best_movies_right_button = document.querySelector('.best_movies_right_button');
 const best_movies_left_button = document.querySelector('.best_movies_left_button');
-var width_list_best_movies = [-200, 0 , 200, 400, 600, 800, 1000];
-var width_list_best_movies_updated = false;
-var width_inversed_list_bm_updated = false;
 const action_right_button = document.querySelector('.action_right_button');
 const actions_left_button = document.querySelector('.actions_left_button');
-var width_list_action = [-200, 0 , 200, 400, 600, 800, 1000];
-var width_list_action_updated = false;
-var width_inversed_list_ac_updated = false;
+const adventure_left_button = document.querySelector('.adventure_left_button');
+const adventure_right_button = document.querySelector('.adventure_right_button');
+const comedy_left_button = document.querySelector('.comedy_left_button');
+const comedy_right_button = document.querySelector('.comedy_right_button');
+var width_list_best_movies = [];
+var el;
 
+
+// ------------------------------------------------------------------------------------------------------//
+
+function navigation_left_raght(left, right, elementid){
+  listimg = document.getElementById(elementid).getElementsByClassName('slide');
+  for(var i = 0; i < listimg.length; i++){
+    width_list_best_movies[i] = listimg[i].style.left;
+  }
+  var slides = document.querySelectorAll('#' + elementid + ' .slide');
+  var slidesArray = Array.prototype.slice.call(slides);
+  if (left === true){
+    for (let pas = 0; pas < slidesArray.length; pas++) {
+      el = slidesArray[pas];
+      if (pas===6){width = width_list_best_movies[0];}else{width = width_list_best_movies[pas+1];}
+      el.style.left = width;
+    }
+  } else{
+      for (let pas = 0; pas < slidesArray.length; pas++) {
+        el = slidesArray[pas];
+        if (pas===0){width = width_list_best_movies[6];}else{width = width_list_best_movies[pas-1];}
+        el.style.left = width;
+      }
+  }
+}
 
 // ------------------------------------------------------------------------------------------------------//
 
 
 best_movies_right_button.addEventListener('click', event => {
-  width_list_best_movies_updated = true;
-  if (width_inversed_list_bm_updated){
-    width_inversed_list_bm_updated =false;
-    for (let x = 0; x < 2; x++) {
-      for (let pas = 0; pas < width_list_best_movies.length; pas++) {
-      if (width_list_best_movies[pas] === -200){width_list_best_movies[pas] = 1000;}else{width_list_best_movies[pas] -= 200;}
-    }
-    }
-  }
-  var slides = document.querySelectorAll('#images_best_movies .slide');
-  var slidesArray = Array.prototype.slice.call(slides);
-  for (let pas = 0; pas < slidesArray.length; pas++) {
-    var el = slidesArray[pas];
-    if (pas===0){width = width_list_best_movies[6];}else{width = width_list_best_movies[pas-1];}
-    el.style.left = width +'px';
-  }
-  for (let pas = 0; pas < width_list_best_movies.length; pas++) {
-    if (width_list_best_movies[pas] === -200){width_list_best_movies[pas] = 1000;}else{width_list_best_movies[pas] -= 200;}
-  }
+  navigation_left_raght(false, true, 'images_best_movies');
 }
 );
 
 // ------------------------------------------------------------------------------------------------------//
 
-
 best_movies_left_button.addEventListener('click', event => {
-  width_inversed_list_bm_updated = true;
-  if (width_list_best_movies_updated){
-    width_list_best_movies_updated =false;
-    for (let x = 0; x < 2; x++) {
-      for (let pas = 0; pas < width_list_best_movies.length; pas++) {
-      if (width_list_best_movies[pas] === 1000){width_list_best_movies[pas] = -200;}else{width_list_best_movies[pas] += 200;}
-    }
-    }
-  }
-  var slides = document.querySelectorAll('#images_best_movies .slide');
-  var slidesArray = Array.prototype.slice.call(slides);
-  for (let pas = 0; pas < slidesArray.length; pas++) {
-    var el = slidesArray[pas];
-    if (pas===0){width = width_list_best_movies[6];}else{width = width_list_best_movies[pas-1];}
-    el.style.left = width +'px';
-  }
-  for (let pas = 0; pas < width_list_best_movies.length; pas++) {
-    if (width_list_best_movies[pas] === 1000){width_list_best_movies[pas] = -200;}else{width_list_best_movies[pas] += 200;}
-  }
+  navigation_left_raght(true, false, 'images_best_movies');
 }
 );
 
@@ -68,50 +53,45 @@ best_movies_left_button.addEventListener('click', event => {
 
 
 action_right_button.addEventListener('click', event => {
-  width_list_action_updated = true;
-  if (width_inversed_list_ac_updated){
-    width_inversed_list_ac_updated =false;
-    for (let x = 0; x < 2; x++) {
-      for (let pas = 0; pas < width_list_action.length; pas++) {
-      if (width_list_action[pas] === -200){width_list_action[pas] = 1000;}else{width_list_action[pas] -= 200;}
-    }
-    }
-  }
-  var slides = document.querySelectorAll('#images_best_movies_categorie_1 .slide');
-  var slidesArray = Array.prototype.slice.call(slides);
-  for (let pas = 0; pas < slidesArray.length; pas++) {
-    var el = slidesArray[pas];
-    if (pas===0){width = width_list_action[6];}else{width = width_list_action[pas-1];}
-    el.style.left = width +'px';
-  }
-  for (let pas = 0; pas < width_list_action.length; pas++) {
-    if (width_list_action[pas] === -200){width_list_action[pas] = 1000;}else{width_list_action[pas] -= 200;}
-  }
+  navigation_left_raght(false, true, 'images_best_movies_categorie_1');
+}
+);
+
+// ------------------------------------------------------------------------------------------------------//
+
+actions_left_button.addEventListener('click', event => {
+  navigation_left_raght(true, false, 'images_best_movies_categorie_1');
 }
 );
 
 // ------------------------------------------------------------------------------------------------------//
 
 
-actions_left_button.addEventListener('click', event => {
-  width_inversed_list_ac_updated = true;
-  if (width_list_action_updated){
-    width_list_action_updated =false;
-    for (let x = 0; x < 2; x++) {
-      for (let pas = 0; pas < width_list_action.length; pas++) {
-      if (width_list_action[pas] === 1000){width_list_action[pas] = -200;}else{width_list_action[pas] += 200;}
-    }
-    }
-  }
-  var slides = document.querySelectorAll('#images_best_movies_categorie_1 .slide');
-  var slidesArray = Array.prototype.slice.call(slides);
-  for (let pas = 0; pas < slidesArray.length; pas++) {
-    var el = slidesArray[pas];
-    if (pas===0){width = width_list_action[6];}else{width = width_list_action[pas-1];}
-    el.style.left = width +'px';
-  }
-  for (let pas = 0; pas < width_list_action.length; pas++) {
-    if (width_list_action[pas] === 1000){width_list_action[pas] = -200;}else{width_list_action[pas] += 200;}
-  }
+adventure_right_button.addEventListener('click', event => {
+  navigation_left_raght(false, true, 'images_best_movies_categorie_2');
 }
 );
+
+// ------------------------------------------------------------------------------------------------------//
+
+adventure_left_button.addEventListener('click', event => {
+  navigation_left_raght(true, false, 'images_best_movies_categorie_2');
+}
+);
+
+// ------------------------------------------------------------------------------------------------------//
+
+
+comedy_right_button.addEventListener('click', event => {
+  navigation_left_raght(false, true, 'images_best_movies_categorie_3');
+}
+);
+
+// ------------------------------------------------------------------------------------------------------//
+
+comedy_left_button.addEventListener('click', event => {
+  navigation_left_raght(true, false, 'images_best_movies_categorie_3');
+}
+);
+
+// ------------------------------------------------------------------------------------------------------//
