@@ -112,6 +112,9 @@ async function render_get_urls_data_best_movies(url, elementid) {
             var width = 200 * pas;
             width -= 200;
             img.style.left = width + 'px';
+            img.onclick = function() {
+            window.location.href = '#id01';
+            };
             img.setAttribute('class', "slide");
             document.getElementById(elementid).appendChild(img);
         }
