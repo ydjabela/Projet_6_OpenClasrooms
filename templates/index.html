@@ -18,30 +18,25 @@
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="#">Accueil</a></li>
-                        <li><a href="#">Catégories</a></li>
+                        <li><a href=".">Accueil</a></li>
+                        <li><a href="#">Catégories
+                        <ul style="display:none;">
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                      </ul></a></li>
                     </ul>
                 </nav>
             </header>
             <div id="baniere_best_film">
                 <div id="banniere_image">
-                    <h4> Best Film: </h4>
-                    <div id="image" ></div>
-                    <div id="banniere_play">
-                        <div class="button">
-                            <a class="text_boutton" href="">Play</a>
-                            <div class="background__button"></div>
-                        </div>
-                        <div class="button">
-                            <a class="text_boutton" href="#descreption_modal">More Info</a>
-                            <div class="background__button"></div>
-                        </div>
-
-                    </div>
+                    <h2> Best Film: </h2>
+                    <div id="image" style="text-align: center;"></div>
                 </div>
                 <div id="banniere_descreption">
-                    <h4 id="ORIGINAL_TITLES"></h4>
-                    <h4 id="RESUMES"></h4>
+                    <h3 id="ORIGINAL_TITLES"></h3>
+                    <h3 id="RESUMES"></h3>
                 </div>
             </div>
             <div id="descreption_modal" class="modal">
@@ -49,7 +44,7 @@
                 <div class="modal-content">
                   <header class="container">
                     <a href="#" class="closebtn">×</a>
-                    <h4 id="TITREs"></h4>
+                    <h3 id="TITREs"></h3>
                   </header>
                   <div class="container">
                     <h4 id="GENREs"></h4>
@@ -63,7 +58,7 @@
                     <h4 id="RESUME_LONGs"></h4>
                   </div>
                   <footer class="container">
-                    <h4 id="DUREEs"></h4>
+                    <h3 id="DUREEs"></h3>
                   </footer>
                 </div>
               </div>
@@ -73,7 +68,7 @@
                 <div class="modal-content">
                   <header class="container">
                     <a href="#" class="closebtn">×</a>
-                    <h4 id="TITRE"></h4>
+                    <h3 id="TITRE"></h3>
                   </header>
                   <div class="container">
                     <h4 id="GENRE"></h4>
@@ -87,35 +82,43 @@
                     <h4 id="RESUME_LONG"></h4>
                   </div>
                   <footer class="container">
-                    <h4 id="DUREE"></h4>
+                    <h3 id="DUREE"></h3>
                   </footer>
                 </div>
               </div>
             </div>
             <section>
-                <h4> Best Films: </h4>
-                <div class="carousel">
-                    <button class="nav nav-left best_movies_left_button" ></button>
-                    <div  id="images_best_movies" class="carousel-content"></div>
-                    <button class="nav nav-right best_movies_right_button" ></button>
+                <div class="carrousel1">
+                    <h2> Best Films: </h2>
+                    <div class="carousel ">
+                        <button class="nav nav-left best_movies_left_button" ></button>
+                        <div  id="images_best_movies" class="carousel-content"></div>
+                        <button class="nav nav-right best_movies_right_button" ></button>
+                    </div>
                 </div>
-                <h4> Action: </h4>
-                <div class="carousel">
-                    <button class="nav nav-left actions_left_button" ></button>
-                    <div  id="images_best_movies_categorie_1" class="carousel-content"></div>
-                    <button class="nav nav-right action_right_button" ></button>
+                <div class="carrousel1">
+                    <h2> Action: </h2>
+                    <div class="carousel">
+                        <button class="nav nav-left actions_left_button" ></button>
+                        <div  id="images_best_movies_categorie_1" class="carousel-content"></div>
+                        <button class="nav nav-right action_right_button" ></button>
+                    </div>
                 </div>
-                <h4> Adventure: </h4>
-                <div class="carousel">
-                    <button class="nav nav-left adventure_left_button" ></button>
-                    <div  id="images_best_movies_categorie_2" class="carousel-content"></div>
-                    <button class="nav nav-right adventure_right_button" ></button>
+                <div class="carrousel1">
+                    <h2> Adventure: </h2>
+                    <div class="carousel">
+                        <button class="nav nav-left adventure_left_button" ></button>
+                        <div  id="images_best_movies_categorie_2" class="carousel-content"></div>
+                        <button class="nav nav-right adventure_right_button" ></button>
+                    </div>
                 </div>
-                <h4> Comedy: </h4>
-                <div class="carousel">
-                    <button class="nav nav-left comedy_left_button" ></button>
-                    <div  id="images_best_movies_categorie_3" class="carousel-content"></div>
-                    <button class="nav nav-right comedy_right_button" ></button>
+                <div class="carrousel1">
+                    <h2> Comedy: </h2>
+                    <div class="carousel">
+                        <button class="nav nav-left comedy_left_button" ></button>
+                        <div  id="images_best_movies_categorie_3" class="carousel-content"></div>
+                        <button class="nav nav-right comedy_right_button" ></button>
+                    </div>
                 </div>
 
             </section>
