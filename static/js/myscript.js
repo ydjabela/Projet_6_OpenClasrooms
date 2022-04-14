@@ -38,8 +38,7 @@ async function get_url(url) {
 async function get_url_data(url) {
     try{
         let url_data_json = await get_url(url);
-        let data_json = await get_data(url_data_json);
-        let result = data_json;
+        let result = await get_data(url_data_json);
         return result
     } catch (error) {
     console.log(error);
@@ -48,21 +47,20 @@ async function get_url_data(url) {
 // function to render  all informations film to html
 async function render_get_url_data(url) {
     try{
-        let url_data_json = await get_url_data(url);
-        let result = url_data_json;
-        document.getElementById("TITRE").innerHTML = 'Titre : ' + result['title'];
-        document.getElementById("ORIGINAL_TITLE").innerHTML = 'Titre : ' + result['original_title'];
-        document.getElementById("GENRE").innerHTML ="Genre :  " + result['genres'];
-        document.getElementById("DATE_SORTIE").innerHTML ="Date de sortie : " + result['date_published'];
-        document.getElementById("RATED").innerHTML = "Rated :" + result['rated'];
-        document.getElementById("SCORE_IMDB").innerHTML = "Score Imdb : " + result['imdb_score'];
-        document.getElementById("REALISATEUR").innerHTML ="Réalisateur : " +  result['writers'];
-        document.getElementById("ACTEURS").innerHTML ="Acteurs :" +  result['actors'];
-        document.getElementById("PAYS").innerHTML ="Pays d’origine : " +  result['countries'];
-        document.getElementById("DUREE").innerHTML ="Durée : " +  result['duration'] + "min";
-        document.getElementById("RESULTAT_BACK").innerHTML ="Résultat au Box Office : " +  result['title'];
-        document.getElementById("RESUME").innerHTML ="Résumé du film : " +  result['description'];
-        document.getElementById("RESUME_LONG").innerHTML ="Résumé du film : " +  result['long_description'];
+        let result = await get_url_data(url);
+        document.getElementById("TITREs").innerHTML = 'Titre : ' + result['title'];
+        document.getElementById("ORIGINAL_TITLES").innerHTML = 'Titre : ' + result['original_title'];
+        document.getElementById("GENREs").innerHTML ="Genre :  " + result['genres'];
+        document.getElementById("DATE_SORTIEs").innerHTML ="Date de sortie : " + result['date_published'];
+        document.getElementById("RATEDs").innerHTML = "Rated :" + result['rated'];
+        document.getElementById("SCORE_IMDBs").innerHTML = "Score Imdb : " + result['imdb_score'];
+        document.getElementById("REALISATEURs").innerHTML ="Réalisateur : " +  result['writers'];
+        document.getElementById("ACTEURSs").innerHTML ="Acteurs :" +  result['actors'];
+        document.getElementById("PAYSs").innerHTML ="Pays d’origine : " +  result['countries'];
+        document.getElementById("DUREEs").innerHTML ="Durée : " +  result['duration'] + "min";
+        document.getElementById("RESULTAT_BACKs").innerHTML ="Résultat au Box Office : " +  result['title'];
+        document.getElementById("RESUMES").innerHTML ="Résumé du film : " +  result['description'];
+        document.getElementById("RESUME_LONGs").innerHTML ="Résumé du film : " +  result['long_description'];
         var img = document.createElement("IMG");
         img.src = result['image_url'];
         document.getElementById('image').appendChild(img);
@@ -75,27 +73,76 @@ async function render_get_url_data(url) {
 // 1st categorie
 async function get_urls_names(url) {
     try{
-        let urls_image = [];
-        let titles = [];
-        var url_json = await get_data(url);
+        let result = [
+            {
+                'urls_image':'','title':'','genres':'', 'date_published':'', 'rated':'','imdb_score':'', 'writers':'',
+                'actors':'', 'countries':'', 'duration':'', 'description':'', 'long_description':''
+            },
+            {
+                'urls_image':'','title':'','genres':'', 'date_published':'', 'rated':'','imdb_score':'', 'writers':'',
+                'actors':'', 'countries':'', 'duration':'', 'description':'', 'long_description':''
+            },
+            {
+                'urls_image':'','title':'','genres':'', 'date_published':'', 'rated':'','imdb_score':'', 'writers':'',
+                'actors':'', 'countries':'', 'duration':'', 'description':'', 'long_description':''
+            },
+            {
+                'urls_image':'','title':'','genres':'', 'date_published':'', 'rated':'','imdb_score':'', 'writers':'',
+                'actors':'', 'countries':'', 'duration':'', 'description':'', 'long_description':''
+            },
+            {
+                'urls_image':'','title':'','genres':'', 'date_published':'', 'rated':'','imdb_score':'', 'writers':'',
+                'actors':'', 'countries':'', 'duration':'', 'description':'', 'long_description':''
+            },
+            {
+                'urls_image':'','title':'','genres':'', 'date_published':'', 'rated':'','imdb_score':'', 'writers':'',
+                'actors':'', 'countries':'', 'duration':'', 'description':'', 'long_description':''
+            },
+            {
+                'urls_image':'','title':'','genres':'', 'date_published':'', 'rated':'','imdb_score':'', 'writers':'',
+                'actors':'', 'countries':'', 'duration':'', 'description':'', 'long_description':''
+            },
+
+        ];
+        var i = 0;
+        let url_data_json = await get_data(url);
         for (let pas = 1; pas < 5; pas++) {
-            let url_image = url_json['results'][pas]['image_url'];
-            let title = url_json['results'][pas]['title'];
-            urls_image.push(url_image);
-            titles.push(title);
+            result[i]['urls_image'] = url_data_json['results'][pas]['image_url'];
+            var url_json = await get_data(url_data_json['results'][pas]['url']);
+            result[i]['title'] = url_json['title'];
+            result[i]['genres'] = url_json['genres'];
+            result[i]['date_published'] = url_json['date_published'];
+            result[i]['rated'] = url_json['rated'];
+            result[i]['imdb_score'] = url_json['imdb_score'];
+            result[i]['writers'] = url_json['writers'];
+            result[i]['actors'] = url_json['actors'];
+            result[i]['countries'] = url_json['countries'];
+            result[i]['duration'] = url_json['duration'];
+            result[i]['title'] = url_json['title'];
+            result[i]['description'] = url_json['description'];
+            result[i]['long_description'] = url_json['long_description'];
+            i += 1;
         }
-        let next_page = url_json['next'];
-        url_json = await get_data(next_page);
+        let next_page = url_data_json['next'];
+        url_data_json = await get_data(next_page);
         for (let pas = 0; pas < 3; pas++) {
-            let url_image = url_json['results'][pas]['image_url'];
-            let title = url_json['results'][pas]['title'];
-            urls_image.push(url_image);
-            titles.push(title);
+            result[i]['urls_image'] = url_data_json['results'][pas]['image_url'];
+            url_json = await get_data(url_data_json['results'][pas]['url']);
+            result[i]['title'] = url_json['title'];
+            result[i]['genres'] = url_json['genres'];
+            result[i]['date_published'] = url_json['date_published'];
+            result[i]['rated'] = url_json['rated'];
+            result[i]['imdb_score'] = url_json['imdb_score'];
+            result[i]['writers'] = url_json['writers'];
+            result[i]['actors'] = url_json['actors'];
+            result[i]['countries'] = url_json['countries'];
+            result[i]['duration'] = url_json['duration'];
+            result[i]['title'] = url_json['title'];
+            result[i]['description'] = url_json['description'];
+            result[i]['long_description'] = url_json['long_description'];
+            i += 1;
         }
-        return  {
-            'urls_image': urls_image,
-            'titles': titles
-          };
+        return  result
     } catch (error) {
     console.log(error);
   }
@@ -103,17 +150,28 @@ async function get_urls_names(url) {
 // function to get  all informations film
 async function render_get_urls_data_best_movies(url, elementid) {
     try{
-        let {urls_image, titles} = await get_urls_names(url);
+        let result = await get_urls_names(url);
         for (let pas = 0; pas < 7; pas++) {
             var img = document.createElement("IMG");
-            img.src = urls_image[pas];
-            img.title = titles[pas];
+            img.src = result[pas]['urls_image'];
+            img.title = result[pas]['title'];
             img.style.marginRight='15px';
             var width = 200 * pas;
             width -= 200;
             img.style.left = width + 'px';
             img.onclick = function() {
-            window.location.href = '#id01';
+                window.location.href = '#id01';
+                document.getElementById("TITRE").innerHTML = 'Titre : ' + result[pas]['title'];
+                document.getElementById("GENRE").innerHTML ="Genre :  " + result[pas]['genres'];
+                document.getElementById("DATE_SORTIE").innerHTML ="Date de sortie : " + result[pas]['date_published'];
+                document.getElementById("RATED").innerHTML = "Rated :" + result[pas]['rated'];
+                document.getElementById("SCORE_IMDB").innerHTML = "Score Imdb : " + result[pas]['imdb_score'];
+                document.getElementById("REALISATEUR").innerHTML ="Réalisateur : " +  result[pas]['writers'];
+                document.getElementById("ACTEURS").innerHTML ="Acteurs :" +  result[pas]['actors'];
+                document.getElementById("PAYS").innerHTML ="Pays d’origine : " +  result[pas]['countries'];
+                document.getElementById("DUREE").innerHTML ="Durée : " +  result[pas]['duration'] + "min";
+                document.getElementById("RESULTAT_BACK").innerHTML ="Résultat au Box Office : " +  result[pas]['title'];
+                document.getElementById("RESUME_LONG").innerHTML ="Résumé du film : " +  result[pas]['long_description'];
             };
             img.setAttribute('class', "slide");
             document.getElementById(elementid).appendChild(img);
