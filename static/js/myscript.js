@@ -35,7 +35,6 @@ async function get_url_data(url) {
 async function render_get_url_data(url) {
     try{
         let result = await get_url_data(url);
-        console.log(result)
         document.getElementById("ORIGINAL_TITLES").innerHTML = 'Titre : ' + result['original_title'];
         document.getElementById("RESUMES").innerHTML ="Résumé du film : " +  result['description'];
         var img = document.createElement("IMG");
@@ -46,19 +45,17 @@ async function render_get_url_data(url) {
         img.onclick = function() {
             window.location.href = '#descreption_modal';
             document.getElementById("TITREs").innerHTML = 'Titre : ' + result['title'];
-            document.getElementById("GENREs").innerHTML ="Genre :  " + result['genres'];
-            document.getElementById("DATE_SORTIEs").innerHTML ="Date de sortie : " + result['date_published'];
-            document.getElementById("RATEDs").innerHTML = "Rated :" + result['rated'];
-            document.getElementById("SCORE_IMDBs").innerHTML = "Score Imdb : " + result['imdb_score'];
-            document.getElementById("REALISATEURs").innerHTML ="Réalisateur : " +  result['writers'];
-            document.getElementById("ACTEURSs").innerHTML ="Acteurs :" +  result['actors'];
-            document.getElementById("PAYSs").innerHTML ="Pays d’origine : " +  result['countries'];
+            document.getElementById("description_film").innerHTML ="Genre :  " + result['genres']+
+                    '<br>'+ "Date de sortie : " + result['date_published']+
+                    '<br>'+ "Rated :" + result['rated'] +
+                    '<br>'+ "Score Imdb : " + result['imdb_score'] +
+                    '<br>'+ "Réalisateur : " +  result['writers'] +
+                    '<br>'+ "Acteurs :" +  result['actors'] +
+                    '<br>'+ "Pays d’origine : " +  result['countries'] +
+                    '<br>'+ "Résultat au Box Office : " +  result['votes'] +
+                    '<br>'+ "Résumé du film : " +  result['long_description'];
             document.getElementById("DUREEs").innerHTML ="Durée : " +  result['duration'] + "min";
-            document.getElementById("RESULTAT_BACKs").innerHTML ="Résultat au Box Office : " +  result['votes'];
-            document.getElementById("RESUME_LONGs").innerHTML ="Résumé du film : " +  result['long_description'];
-
         };
-
         document.getElementById('image').appendChild(img);
         return result
     } catch (error) {
@@ -98,7 +95,6 @@ async function get_urls_names(url) {
                 'urls_image':'','title':'','genres':'', 'date_published':'', 'rated':'','imdb_score':'', 'writers':'',
                 'actors':'', 'countries':'', 'duration':'', 'description':'', 'long_description':''
             },
-
         ];
         var i = 0;
         let url_data_json = await get_data(url);
@@ -157,19 +153,20 @@ async function render_get_urls_data_best_movies(url, elementid) {
             img.style.left = width + 'px';
 
             img.onclick = function() {
-                var imgmodal = ''
                 window.location.href = '#id01';
-                document.getElementById("TITRE").innerHTML = 'Titre : ' + result[pas]['title'];
-                document.getElementById("GENRE").innerHTML ="Genre :  " + result[pas]['genres'];
-                document.getElementById("DATE_SORTIE").innerHTML ="Date de sortie : " + result[pas]['date_published'];
-                document.getElementById("RATED").innerHTML = "Rated :" + result[pas]['rated'];
-                document.getElementById("SCORE_IMDB").innerHTML = "Score Imdb : " + result[pas]['imdb_score'];
-                document.getElementById("REALISATEUR").innerHTML ="Réalisateur : " +  result[pas]['writers'];
-                document.getElementById("ACTEURS").innerHTML ="Acteurs :" +  result[pas]['actors'];
-                document.getElementById("PAYS").innerHTML ="Pays d’origine : " +  result[pas]['countries'];
+                document.getElementById("TITRE").innerHTML = 'Titre : ' + result[pas]['title'] +'<br>'+ "Genre :  " + result[pas]['genres'];
+
+                document.getElementById("description_films").innerHTML ="Genre :  " + result[pas]['genres']+
+                    '<br>'+ "Date de sortie : " + result[pas]['date_published']+
+                    '<br>'+ "Rated :" + result[pas]['rated'] +
+                    '<br>'+ "Score Imdb : " + result[pas]['imdb_score'] +
+                    '<br>'+ "Réalisateur : " +  result[pas]['writers'] +
+                    '<br>'+ "Acteurs :" +  result[pas]['actors'] +
+                    '<br>'+ "Pays d’origine : " +  result[pas]['countries'] +
+                    '<br>'+ "Durée : " +  result[pas]['duration'] + "min" +
+                    '<br>'+ "Résultat au Box Office : " +  result[pas]['votes'] +
+                    '<br>'+ "Résumé du film : " +  result[pas]['long_description'];
                 document.getElementById("DUREE").innerHTML ="Durée : " +  result[pas]['duration'] + "min";
-                document.getElementById("RESULTAT_BACK").innerHTML ="Résultat au Box Office : " +  result[pas]['votes'];
-                document.getElementById("RESUME_LONG").innerHTML ="Résumé du film : " +  result[pas]['long_description'];
                 imgmodal = document.createElement("IMG");
                 imgmodal.src = result[pas]['urls_image'];
                 var maDiv = document.getElementById('images_films');
