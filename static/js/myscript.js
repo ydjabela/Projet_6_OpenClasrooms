@@ -35,11 +35,14 @@ async function get_url_data(url) {
 async function render_get_url_data(url) {
     try{
         let result = await get_url_data(url);
+        console.log(result)
         document.getElementById("ORIGINAL_TITLES").innerHTML = 'Titre : ' + result['original_title'];
         document.getElementById("RESUMES").innerHTML ="Résumé du film : " +  result['description'];
         var img = document.createElement("IMG");
         img.src = result['image_url'];
-        img.style.textAlign= 'center';
+        let imgmodal = document.createElement("IMG");
+        imgmodal.src = result['image_url'];
+        document.getElementById('image_film').appendChild(imgmodal);
         img.onclick = function() {
             window.location.href = '#descreption_modal';
             document.getElementById("TITREs").innerHTML = 'Titre : ' + result['title'];
@@ -51,8 +54,9 @@ async function render_get_url_data(url) {
             document.getElementById("ACTEURSs").innerHTML ="Acteurs :" +  result['actors'];
             document.getElementById("PAYSs").innerHTML ="Pays d’origine : " +  result['countries'];
             document.getElementById("DUREEs").innerHTML ="Durée : " +  result['duration'] + "min";
-            document.getElementById("RESULTAT_BACKs").innerHTML ="Résultat au Box Office : " +  result['title'];
+            document.getElementById("RESULTAT_BACKs").innerHTML ="Résultat au Box Office : " +  result['votes'];
             document.getElementById("RESUME_LONGs").innerHTML ="Résumé du film : " +  result['long_description'];
+
         };
 
         document.getElementById('image').appendChild(img);
@@ -110,7 +114,7 @@ async function get_urls_names(url) {
             result[i]['actors'] = url_json['actors'];
             result[i]['countries'] = url_json['countries'];
             result[i]['duration'] = url_json['duration'];
-            result[i]['title'] = url_json['title'];
+            result[i]['votes'] = url_json['votes'];
             result[i]['description'] = url_json['description'];
             result[i]['long_description'] = url_json['long_description'];
             i += 1;
@@ -129,7 +133,7 @@ async function get_urls_names(url) {
             result[i]['actors'] = url_json['actors'];
             result[i]['countries'] = url_json['countries'];
             result[i]['duration'] = url_json['duration'];
-            result[i]['title'] = url_json['title'];
+            result[i]['votes'] = url_json['votes'];
             result[i]['description'] = url_json['description'];
             result[i]['long_description'] = url_json['long_description'];
             i += 1;
@@ -151,7 +155,9 @@ async function render_get_urls_data_best_movies(url, elementid) {
             var width = 200 * pas;
             width -= 200;
             img.style.left = width + 'px';
+
             img.onclick = function() {
+                var imgmodal = ''
                 window.location.href = '#id01';
                 document.getElementById("TITRE").innerHTML = 'Titre : ' + result[pas]['title'];
                 document.getElementById("GENRE").innerHTML ="Genre :  " + result[pas]['genres'];
@@ -162,8 +168,13 @@ async function render_get_urls_data_best_movies(url, elementid) {
                 document.getElementById("ACTEURS").innerHTML ="Acteurs :" +  result[pas]['actors'];
                 document.getElementById("PAYS").innerHTML ="Pays d’origine : " +  result[pas]['countries'];
                 document.getElementById("DUREE").innerHTML ="Durée : " +  result[pas]['duration'] + "min";
-                document.getElementById("RESULTAT_BACK").innerHTML ="Résultat au Box Office : " +  result[pas]['title'];
+                document.getElementById("RESULTAT_BACK").innerHTML ="Résultat au Box Office : " +  result[pas]['votes'];
                 document.getElementById("RESUME_LONG").innerHTML ="Résumé du film : " +  result[pas]['long_description'];
+                imgmodal = document.createElement("IMG");
+                imgmodal.src = result[pas]['urls_image'];
+                var maDiv = document.getElementById('images_films');
+                maDiv.innerHTML = '';
+                maDiv.appendChild(imgmodal);
             };
             img.setAttribute('class', "slide");
             document.getElementById(elementid).appendChild(img);
