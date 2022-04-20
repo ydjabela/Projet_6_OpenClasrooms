@@ -154,10 +154,10 @@ async function render_get_urls_data_best_movies(url, elementid) {
 
             img.onclick = function() {
                 window.location.href = '#id01';
-                document.getElementById("TITRE").innerHTML = 'Titre : ' + result[pas]['title'] +'<br>'+ "Genre :  " + result[pas]['genres'];
+                document.getElementById("TITRE").innerHTML = 'Titre : ' + result[pas]['title'];
 
-                document.getElementById("description_films").innerHTML ="Genre :  " + result[pas]['genres']+
-                    '<br>'+ "Date de sortie : " + result[pas]['date_published']+
+                document.getElementById("description_films").innerHTML = "Genre :  " + result[pas]['genres'] +
+                    '<br>'+ "Date de sortie : " + result[pas]['date_published'] +
                     '<br>'+ "Rated :" + result[pas]['rated'] +
                     '<br>'+ "Score Imdb : " + result[pas]['imdb_score'] +
                     '<br>'+ "Réalisateur : " +  result[pas]['writers'] +

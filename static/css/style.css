@@ -39,10 +39,10 @@ li ul {
 ul li a {
     display: block;
     text-decoration: none;
-    color: #ffffff;
-    border-top: 1px solid #ffffff;
+    color: black;
+    border-top: 1px solid black;
     padding: 5px 15px 5px 15px;
-    background: #1e7c9a;
+    background: lightgrey;
     margin-left: 1px;
     white-space: nowrap;
 }
