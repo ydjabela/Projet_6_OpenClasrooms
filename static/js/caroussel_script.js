@@ -32,6 +32,7 @@ function navigation_left_raght(left, right, elementid){
         el.style.left = width;
       }
   }
+}
 
 // ------------------------------------------------------------------------------------------------------//
 
