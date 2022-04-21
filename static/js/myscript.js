@@ -39,13 +39,11 @@ async function render_get_url_data(url) {
         document.getElementById("RESUMES").innerHTML ="Résumé du film : " +  result['description'];
         var img = document.createElement("IMG");
         img.src = result['image_url'];
-        let imgmodal = document.createElement("IMG");
-        imgmodal.src = result['image_url'];
-        document.getElementById('image_film').appendChild(imgmodal);
+        document.getElementById('image').appendChild(img);
         img.onclick = function() {
-            window.location.href = '#descreption_modal';
-            document.getElementById("TITREs").innerHTML = 'Titre : ' + result['title'];
-            document.getElementById("description_film").innerHTML ="Genre :  " + result['genres']+
+            window.location.href = '#id01';
+            document.getElementById("TITRE").innerHTML = 'Titre : ' + result['title'];
+            document.getElementById("description_films").innerHTML ="Genre :  " + result['genres']+
                     '<br>'+ "Date de sortie : " + result['date_published']+
                     '<br>'+ "Rated :" + result['rated'] +
                     '<br>'+ "Score Imdb : " + result['imdb_score'] +
@@ -54,9 +52,14 @@ async function render_get_url_data(url) {
                     '<br>'+ "Pays d’origine : " +  result['countries'] +
                     '<br>'+ "Résultat au Box Office : " +  result['votes'] +
                     '<br>'+ "Résumé du film : " +  result['long_description'];
-            document.getElementById("DUREEs").innerHTML ="Durée : " +  result['duration'] + "min";
+            document.getElementById("DUREE").innerHTML ="Durée : " +  result['duration'] + "min";
+            imgmodal = document.createElement("IMG");
+            imgmodal.src = result['image_url'];
+            var maDiv = document.getElementById('images_films');
+            maDiv.innerHTML = '';
+            maDiv.appendChild(imgmodal);
         };
-        document.getElementById('image').appendChild(img);
+
         return result
     } catch (error) {
     console.log(error);
