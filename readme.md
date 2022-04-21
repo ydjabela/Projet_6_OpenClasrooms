@@ -46,18 +46,6 @@ pip install -r requirements.txt
 
 Pour lancer le projet : ``` python main.py  ``` et laissez-vous guider !
 
-###Utilisation
-####
-
-
-### Mise en forme du code :
-Le code est mis en forme selon de modèle MVC.
-
-
-#### Cette commande sera obligatoire à chaque fois que vous voudrez travailler avec le cours. Dans le même terminal, tapez maintenant
-```
-pip install -r requirements.txt
-```
 ### Contributeurs
 - Yacine Djabela 
 - Stephane Didier
