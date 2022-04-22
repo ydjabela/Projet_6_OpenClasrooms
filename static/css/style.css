@@ -206,7 +206,6 @@ h4 {
 .slide {
   height: 100%;
   position: absolute;
-  z-index: 1;
   transition: left .4s cubic-bezier(.47,.13,.15,.89);
 }
 

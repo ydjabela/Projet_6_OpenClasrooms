@@ -150,7 +150,6 @@ async function render_get_urls_data_best_movies(url, elementid) {
             var img = document.createElement("IMG");
             img.src = result[pas]['urls_image'];
             img.title = result[pas]['title'];
-            img.style.marginRight='15px';
             var width = 200 * pas;
             width -= 200;
             img.style.left = width + 'px';

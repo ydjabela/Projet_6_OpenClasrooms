@@ -23,12 +23,22 @@ function navigation_left_raght(left, right, elementid){
     for (let pas = 0; pas < slidesArray.length; pas++) {
       el = slidesArray[pas];
       if (pas===6){width = width_list_best_movies[0];}else{width = width_list_best_movies[pas+1];}
+      if (el.style.left==='1000px'){
+        el.style.zIndex=1;
+      }else{
+        el.style.zIndex=2;
+      }
       el.style.left = width;
     }
   } else{
       for (let pas = 0; pas < slidesArray.length; pas++) {
         el = slidesArray[pas];
         if (pas===0){width = width_list_best_movies[6];}else{width = width_list_best_movies[pas-1];}
+        if (el.style.left==='-200px'){
+        el.style.zIndex=1;
+      }else{
+        el.style.zIndex=2;
+      }
         el.style.left = width;
       }
   }
