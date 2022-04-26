@@ -1,6 +1,12 @@
+
 body
 {
     background-color: darkgrey;
+}
+#bloc_page{
+    width: 1500px;
+    height: 100%;
+    margin: 0 auto;
 }
 
 /*------------------------------------------------------------------------------------------------------------------- */
@@ -67,24 +73,65 @@ li:hover li a:hover {
 
 
 /* Bannière */
-#baniere_best_film
-{
-    margin-top: 15px;
-}
-#banniere_image
-{
-    margin-top: 15px;
-    border-radius: 5px;
-    position: relative;
-    box-shadow: 0px 4px 4px #1c1a19;
-}
-#banniere_descreption
-{
-    border-radius: 5px;
-    box-shadow: 0px 4px 4px #1c1a19;
+
+.box {
+  position: relative;
+  text-align: center;
+  color: black;
 }
 
-#banniere_descreption h4 , footer h1, h2, h3
+.box img {
+    width : 350px;
+    height : auto;
+}
+
+
+#ORIGINAL_TITLES {
+    position: absolute;
+    bottom: 150px;
+    left: 16px;
+}
+#RESUMES {
+    position: absolute;
+    bottom: 120px;
+    left: 16px;
+    width: 480px;
+    text-align: justify;
+}
+
+.styled {
+    position: absolute;
+    bottom: 80px;
+    left: 160px;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(220, 0, 0, 1);
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.styled:hover {
+    background-color: rgba(255, 0, 0, 1);
+}
+
+.styled:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+/*------------------------------------------------------------------------------------------------------------------- */
+
+footer h1, h2, h3
 {
     font-family: "Times New Roman", serif;
     color: black;

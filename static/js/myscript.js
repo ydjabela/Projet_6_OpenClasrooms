@@ -35,8 +35,8 @@ async function get_url_data(url) {
 async function render_get_url_data(url) {
     try{
         let result = await get_url_data(url);
-        document.getElementById("ORIGINAL_TITLES").innerHTML = 'Titre : ' + result['original_title'];
-        document.getElementById("RESUMES").innerHTML ="Résumé du film : " +  result['description'];
+        document.getElementById("ORIGINAL_TITLES").innerHTML = result['original_title'];
+        document.getElementById("RESUMES").innerHTML =result['description'];
         var img = document.createElement("IMG");
         img.src = result['image_url'];
         document.getElementById('image').appendChild(img);
