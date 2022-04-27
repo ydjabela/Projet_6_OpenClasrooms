@@ -8,7 +8,7 @@ body
     width: 900px;
     margin: auto;
 }
-@media all and (max-width: 1500px)
+@media all and (max-width: 2400px)
 {
     #bloc_page
     {
@@ -20,8 +20,20 @@ body
       margin: 0 auto;
       box-shadow: 0px 4px 4px #1c1a19;
     }
+    #ORIGINAL_TITLES {
+    position: absolute;
+    bottom: 200px;
+    left: 16px;
 }
-@media all and (max-width: 800px)
+    #RESUMES {
+        position: absolute;
+        bottom: 120px;
+        left: 16px;
+        width: 200px;
+        text-align: justify;
+    }
+}
+@media all and (max-width: 767px)
 {
     #bloc_page
     {
@@ -32,6 +44,18 @@ body
       width: 600px;
       margin: 0 auto;
       box-shadow: 0px 4px 4px #1c1a19;
+    }
+    #ORIGINAL_TITLES {
+    bottom: 200px;
+    left: 16px;
+        color: white;
+    }
+    #RESUMES {
+        bottom: 120px;
+        left: 16px;
+        width: 200px;
+        text-align: justify;
+        color: white;
     }
 }
 @media all and (max-width: 600px)
@@ -122,8 +146,6 @@ li:hover li a:hover {
 /*------------------------------------------------------------------------------------------------------------------- */
 
 /* baniere meilleur film */
-
-
 /* Bannière */
 
 .box {
@@ -135,20 +157,6 @@ li:hover li a:hover {
 .box img {
     width : 350px;
     height : auto;
-}
-
-
-#ORIGINAL_TITLES {
-    position: absolute;
-    bottom: 200px;
-    left: 16px;
-}
-#RESUMES {
-    position: absolute;
-    bottom: 120px;
-    left: 16px;
-    width: 200px;
-    text-align: justify;
 }
 
 .styled {
